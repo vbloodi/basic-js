@@ -27,7 +27,7 @@ describe('Carbon dating', () => {
       assert.equal(dateSample(undefined), false);
       assert.equal(dateSample([3]), false);
       assert.equal(dateSample(['3']), false);
-      assert.equal(dateSample({ '3.14': '3dec' }), false);
+      assert.equal(dateSample({ 3.14: '3dec' }), false);
     });
 
     it.optional('should return false if no argument', () => {
@@ -44,13 +44,11 @@ describe('Carbon dating', () => {
   });
 
   describe('functional requirements ', () => {
-
     describe('passes simpliest check and determines correct tests', () => {
-
       let isLogCalculated = false;
       try {
         isLogCalculated = dateSample('1') === 22387;
-      } catch (e) { }
+      } catch (e) {}
 
       if (isLogCalculated) {
         it.optional('basic examples', () => {
@@ -277,7 +275,6 @@ describe('Carbon dating', () => {
           assert.equal(dateSample('6.555955979600091'), 6844);
         });
       }
-
     });
 
     it.optional('should handle inadequate values', () => {
